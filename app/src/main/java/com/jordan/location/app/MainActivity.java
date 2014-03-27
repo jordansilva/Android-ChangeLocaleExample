@@ -20,13 +20,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        load();
-    }
-
-    private void load() {
-//        Button btnPortugues = (Button) findViewById(R.id.btnPortugues);
-//        Button btnIngles = (Button) findViewById(R.id.btnIngles);
-//        Button btnEspanhol = (Button) findViewById(R.id.btnEspanhol);
     }
 
     public void onClickPortugues(View view) {
@@ -48,13 +41,13 @@ public class MainActivity extends ActionBarActivity {
 //        Configuration conf = res.getConfiguration();
 //        conf.locale = myLocale;
 //        res.updateConfiguration(conf, dm);
-//        Intent refresh = new Intent(this, AndroidLocalize.class);
+//        Intent refresh = new Intent(this, MainActivity.class);
 //        startActivity(refresh);
     }
 
     public void changeLanguageSettings(Context con, Locale language) {
         try {
-            /** here add language code */
+            //Linguagem definida
             Locale locale = language;
 
             Class amnClass = Class.forName("android.app.ActivityManagerNative");
@@ -77,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
             Field f = configClass.getField("userSetLocale");
             f.setBoolean(config, true);
 
-            // set the locale to the new value
+            // alterando a linguagem
             config.locale = locale;
 
             // amn.updateConfiguration(config);
@@ -87,8 +80,8 @@ public class MainActivity extends ActionBarActivity {
             methodUpdateConfiguration.invoke(amn, config);
 
         } catch (Exception e) {
-            // TODO: handle exception
-            Log.d("error lang change-->", "" + e.getMessage().toString());
+            
+            Log.d("error-->", "" + e.getMessage().toString());
         }
     }
 }
