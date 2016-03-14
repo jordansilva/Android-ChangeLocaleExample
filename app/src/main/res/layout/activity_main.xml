@@ -9,34 +9,34 @@
     tools:context="com.jordan.location.app.MainActivity">
 
     <Button
-        android:id="@+id/btnPortugues"
+        android:id="@+id/btnPortuguese"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
-        android:onClick="onClickPortugues"
-        android:text="Português" />
+        android:onClick="onClickPortuguese"
+        android:text="Portuguese" />
 
     <Button
-        android:id="@+id/btnIngles"
+        android:id="@+id/btnEnglish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnPortugues"
-        android:layout_alignRight="@+id/btnPortugues"
-        android:layout_below="@+id/btnPortugues"
+        android:layout_alignLeft="@+id/btnPortuguese"
+        android:layout_alignRight="@+id/btnPortuguese"
+        android:layout_below="@+id/btnPortuguese"
         android:layout_marginTop="55dp"
-        android:onClick="onClickIngles"
-        android:text="Inglês" />
+        android:onClick="onClickEnglish"
+        android:text="English" />
 
     <Button
-        android:id="@+id/btnEspanhol"
+        android:id="@+id/btnSpanish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnIngles"
-        android:layout_alignRight="@+id/btnIngles"
-        android:layout_below="@+id/btnIngles"
+        android:layout_alignLeft="@+id/btnEnglish"
+        android:layout_alignRight="@+id/btnEnglish"
+        android:layout_below="@+id/btnEnglish"
         android:layout_marginTop="70dp"
-        android:onClick="onClickEspanhol"
-        android:text="Espanhol" />
+        android:onClick="onClickSpanish"
+        android:text="Spanish" />
 
 </RelativeLayout>
