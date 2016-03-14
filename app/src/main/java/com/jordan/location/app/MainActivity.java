@@ -22,19 +22,20 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void onClickPortugues(View view) {
+    public void onClickPortuguese(View view) {
         changeLanguageSettings(this, new Locale("pt", "BR"));
     }
 
-    public void onClickIngles(View view) {
+    public void onClickEnglish(View view) {
         changeLanguageSettings(this, Locale.ENGLISH);
     }
 
-    public void onClickEspanhol(View view) {
+    public void onClickSpanish(View view) {
         changeLanguageSettings(this, new Locale("es", "ES"));
     }
 
-    public void setLocale(String lang) {
+//    Did not work for me!
+//    public void setLocale(String lang) {
 //        Locale myLocale = new Locale(lang);
 //        Resources res = getResources();
 //        DisplayMetrics dm = res.getDisplayMetrics();
@@ -43,13 +44,14 @@ public class MainActivity extends ActionBarActivity {
 //        res.updateConfiguration(conf, dm);
 //        Intent refresh = new Intent(this, MainActivity.class);
 //        startActivity(refresh);
-    }
+//    }
 
     public void changeLanguageSettings(Context con, Locale language) {
         try {
-            //Linguagem definida
+            //Set language
             Locale locale = language;
 
+            //Getting by reflection the ActivityManagerNative
             Class amnClass = Class.forName("android.app.ActivityManagerNative");
             Object amn = null;
             Configuration config = null;
@@ -60,8 +62,7 @@ public class MainActivity extends ActionBarActivity {
             amn = methodGetDefault.invoke(amnClass);
 
             // config = amn.getConfiguration();
-            Method methodGetConfiguration = amnClass
-                    .getMethod("getConfiguration");
+            Method methodGetConfiguration = amnClass.getMethod("getConfiguration");
             methodGetConfiguration.setAccessible(true);
             config = (Configuration) methodGetConfiguration.invoke(amn);
 
@@ -70,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
             Field f = configClass.getField("userSetLocale");
             f.setBoolean(config, true);
 
-            // alterando a linguagem
+            // Update language
             config.locale = locale;
 
             // amn.updateConfiguration(config);
